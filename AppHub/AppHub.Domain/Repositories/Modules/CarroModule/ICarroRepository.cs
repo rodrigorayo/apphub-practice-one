@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AppHub.Domain.Repositories.AnimaleModule
+namespace AppHub.Domain.Repositories.Modules.CarroModule
 {
-    internal interface IAnimalRepository : IGenericRepository<AnimalModel>
+    internal interface ICarroRepository : IGenericRepository<CarroModel>
     {
     }
 }
