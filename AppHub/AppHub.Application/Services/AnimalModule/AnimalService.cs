@@ -3,7 +3,7 @@ using AppHub.Domain.Models;
 using AppHub.Application.Exceptions;
 using AppHub.Domain.Repositories.Modules;
 
-namespace AppHub.Application.Services
+namespace AppHub.Application.Services.AnimalModule
 {
     public class AnimalService
     {

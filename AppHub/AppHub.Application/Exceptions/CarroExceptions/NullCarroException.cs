@@ -6,9 +6,7 @@ using System.Threading.Tasks;
 
 namespace AppHub.Application.Exceptions.CarroExceptions
 {
-    internal class NullCarroException : ApplicationException
+    internal class NullCarroException(int id) : ApplicationException($"El carro con este ID: {id} no existe.")
     {
-        public NullCarroException(int id) : base($"El carro con este ID: {id} no existe.")
-        {
     }
 }
