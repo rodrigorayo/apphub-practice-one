@@ -1,6 +1,6 @@
 ﻿namespace AppHub.Domain.Models
 {
-    internal class CarroModel : BaseModel
+    public class CarroModel : BaseModel
     {
         public string Nombre { get; set; }
         public string Color { get; set; }

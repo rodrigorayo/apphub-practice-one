@@ -4,6 +4,9 @@
     (
         int Id,
         string Nombre,
-        string Color
+        string Color,
+        double Precio,
+        DateTime CreateAt,
+        DateTime UpdatedAt
     );
 }

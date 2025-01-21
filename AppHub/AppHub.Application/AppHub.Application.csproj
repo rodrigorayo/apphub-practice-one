@@ -12,4 +12,12 @@
     <Folder Include="Validators\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="FluentValidation" Version="11.11.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AppHub.Domain\AppHub.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

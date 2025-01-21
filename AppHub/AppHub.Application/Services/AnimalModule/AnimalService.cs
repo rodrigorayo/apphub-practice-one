@@ -1,17 +1,33 @@
-﻿using AppHub.Domain.Models;
-using AppHub.Domain.Repositories.Modules.AnimalModule;
-using AppHub.Application.Validators;
+﻿using AppHub.Application.Providers;
+using AppHub.Domain.Models;
 using AppHub.Application.Exceptions;
+using AppHub.Domain.Repositories.Modules;
 
-namespace AppHub.Application.Services.AnimalModule
+namespace AppHub.Application.Services
 {
     public class AnimalService
     {
         private readonly IAnimalRepository _animalRepository;
+        private readonly DateProvider _dateProvider;
 
-        public AnimalService(IAnimalRepository animalRepository)
+        public AnimalService(IAnimalRepository animalRepository, DateProvider dateProvider)
         {
             _animalRepository = animalRepository;
+            _dateProvider = dateProvider;
+        }
+
+        public async Task SaveAsync(AnimalModel animal)
+        {
+            if (animal.Id == 0)
+            {
+                animal.CreatedAt = _dateProvider.GetCurrentDateUtc();
+            }
+            else
+            {
+                animal.UpdatedAt = _dateProvider.GetCurrentDateUtc();
+            }
+
+            await _animalRepository.AddAsync(animal);
         }
 
         public async Task<IEnumerable<AnimalModel>> GetAllAsync()
@@ -23,38 +39,22 @@ namespace AppHub.Application.Services.AnimalModule
         {
             var animal = await _animalRepository.GetByIdAsync(id);
             if (animal == null)
-                throw new ApplicationException("Animal no encontrado.");
+            {
+                throw new NullAnimalException(id);
+            }
+
             return animal;
-        }
-
-        public async Task SaveAsync(AnimalModel animal)
-        {
-            var validator = new AnimalValidator();
-            var validationResult = validator.Validate(animal);
-
-            if (!validationResult.IsValid)
-            {
-                throw new ApplicationException(
-                    string.Join(", ", validationResult.Errors.Select(e => e.ErrorMessage))
-                );
-            }
-
-            if (animal.Id == 0)
-            {
-                await _animalRepository.AddAsync(animal);
-            }
-            else
-            {
-                _animalRepository.Update(animal);
-            }
         }
 
         public async Task DeleteByIdAsync(int id)
         {
             var animal = await _animalRepository.GetByIdAsync(id);
             if (animal == null)
-                throw new ApplicationException("Animal no encontrado.");
-            _animalRepository.Delete(animal);
+            {
+                throw new NullAnimalException(id);
+            }
+
+            await _animalRepository.DeleteAsync(animal); // Ahora es asincrónico.
         }
     }
 }

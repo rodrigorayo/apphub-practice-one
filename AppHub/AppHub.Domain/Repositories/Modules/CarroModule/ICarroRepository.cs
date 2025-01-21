@@ -2,7 +2,7 @@
 
 namespace AppHub.Domain.Repositories.Modules.CarroModule
 {
-    internal interface ICarroRepository : IGenericRepository<CarroModel>
+    public interface ICarroRepository : IGenericRepository<CarroModel>
     {
     }
 }

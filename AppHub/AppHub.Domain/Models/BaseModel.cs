@@ -7,8 +7,10 @@ using System.Threading.Tasks;
 
 namespace AppHub.Domain.Models
 {
-    internal class BaseModel
+    public class BaseModel
     {
-        int Id { get; set; }
+        public int Id { get; set; }
+        public DateTime CreatedAt { get; set; } // Fecha de creación
+        public DateTime UpdatedAt { get; set; }
     }
 }

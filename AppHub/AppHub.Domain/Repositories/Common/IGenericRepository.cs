@@ -4,5 +4,5 @@
     Task<IEnumerable<T>> GetAllAsync();  // Obtener todos los elementos.
     Task AddAsync(T entity);  // Agregar un nuevo elemento.
     void Update(T entity);  // Actualizar un elemento existente.
-    void Delete(T entity);  // Eliminar un elemento.
+    Task DeleteAsync(T entity);  // Eliminar un elemento.
 }

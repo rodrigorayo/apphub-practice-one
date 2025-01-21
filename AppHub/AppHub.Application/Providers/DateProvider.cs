@@ -1,12 +1,19 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AppHub.Application.Providers
 {
-    internal class DateProvider
+    public class DateProvider
     {
+        // Método para obtener la fecha y hora en formato UTC (universal).
+        public DateTime GetCurrentDateUtc()
+        {
+            return DateTime.UtcNow;
+        }
+
+        // Método para obtener la fecha y hora en formato local.
+        public DateTime GetCurrentDateLocal()
+        {
+            return DateTime.Now;
+        }
     }
 }

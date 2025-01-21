@@ -1,6 +1,6 @@
 ﻿namespace AppHub.Domain.Models
 {
-    internal class AnimalModel : BaseModel
+    public class AnimalModel : BaseModel
     {
         public string Nombre { get; set; }
         public string Tipo { get; set; } // Ejemplo: "Perro", "Gato"

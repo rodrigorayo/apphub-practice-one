@@ -9,7 +9,7 @@ namespace AppHub.Application.Exceptions
 {
     public class NullAnimalException : ApplicationException
     {
-        public NullAnimalException(int id) : base($"El animal con este ID no existe {id}")
+        public NullAnimalException(int id) : base($"El animal con este ID: {id} no existe.")
         {
         }
     }
