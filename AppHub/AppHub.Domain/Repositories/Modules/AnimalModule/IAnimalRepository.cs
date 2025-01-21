@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AppHub.Application.Validators
+namespace AppHub.Domain.Repositories.Modules
 {
-    internal class NameValidator
+    internal interface IAnimalRepository
     {
     }
 }

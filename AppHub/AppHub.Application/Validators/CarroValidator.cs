@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AppHub.Application.Services
+namespace AppHub.Application.Validators
 {
-    internal class NameService
+    internal class CarroValidator
     {
     }
 }
